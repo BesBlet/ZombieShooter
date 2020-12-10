@@ -5,7 +5,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 10f;
+    
+    
     Rigidbody2D rb;
+    Animator animator;
 
 
 
@@ -14,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -42,6 +46,9 @@ public class PlayerMovement : MonoBehaviour
         }
 
         rb.velocity = direction * speed;
+
+        animator.SetFloat("Speed", direction.magnitude);
+
     }
 
 
