@@ -2,35 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
-
     public Bullet bulletPrefab;
     public GameObject shootPosition;
 
     public float fireRate = 1f;
+    public int enemyLife = 75;
     float nextFire;
     
-    public int playerLife = 100;
-    public bool death;
-
     Animator animator;
-    
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
     }
-
-    void Start()
-    {
-        death = false;
-    }
-
     
     void Update()
     {
-        if (playerLife <= 0)
+        if (enemyLife <= 0)
         {
             Death();
         }
@@ -38,14 +28,13 @@ public class Player : MonoBehaviour
         {
             CheckFire();
         }
-        
+
     }
-
-   
-
+    
+    
     private void CheckFire()
     {
-        if (Input.GetButton("Fire1") && nextFire <= 0)
+        if (nextFire <= 0)
         {
             Shoot();
         }
@@ -63,12 +52,12 @@ public class Player : MonoBehaviour
 
         nextFire = fireRate;
     }
-
-
-   public void Death()
-   {
-       death = true;
+    
+    
+    void Death()
+    {
         animator.SetBool("Death", true);
-        
     }
+
+
 }

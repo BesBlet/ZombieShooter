@@ -3,22 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class EnemyMove : MonoBehaviour
 {
-    public float speed = 10f;
+    public float speed = 5f;
     
     
     Rigidbody2D rb;
     Animator animator;
-    
-    
+
     Player player;
-
-
-
-
-
-
+    
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -32,20 +26,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (player.playerLife <= 0)
-        {
-            return;
-        }
-        Move();
-        Rotate();
+        //Move();
+        //Rotate();
     }
-
+    
     private void Move()
     {
-        float inputX = Input.GetAxis("Horizontal");
-        float inputY = Input.GetAxis("Vertical");
 
-        Vector2 direction = new Vector2(inputX, inputY);
+        Vector2 direction = new Vector2(0, 0);
 
         if (direction.magnitude > 1)
         {
@@ -57,17 +45,15 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Speed", direction.magnitude);
 
     }
-
-
+    
     void Rotate()
     {
-        Vector3 playerPosition = transform.position;
+        Vector3 playerPosition = player.transform.position;
+        playerPosition.z = 0;
 
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.LookAt(-playerPosition);
 
-        Vector3 direction = mousePosition - playerPosition;
-
-        direction.z = 0;
-        transform.up = -direction;
+       
     }
+
 }
