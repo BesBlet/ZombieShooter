@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (player.playerLife <= 0)
+        if (player.death)
         {
             return;
         }

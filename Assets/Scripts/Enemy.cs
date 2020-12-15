@@ -7,17 +7,19 @@ public class Enemy : MonoBehaviour
     public Bullet bulletPrefab;
     public GameObject shootPosition;
 
-    public float fireRate = 1f;
+    public float fireRate = 3f;
     public int enemyLife = 75;
     float nextFire;
-    
+
     Animator animator;
+    Bullet bullet;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
     }
-    
+
+
     void Update()
     {
         if (enemyLife <= 0)
@@ -30,8 +32,8 @@ public class Enemy : MonoBehaviour
         }
 
     }
-    
-    
+
+
     private void CheckFire()
     {
         if (nextFire <= 0)
@@ -52,12 +54,31 @@ public class Enemy : MonoBehaviour
 
         nextFire = fireRate;
     }
-    
-    
+
+
     void Death()
     {
         animator.SetBool("Death", true);
     }
 
 
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player Bullet")) // 10 =  player bullet
+        {
+           bullet = collision.gameObject.GetComponent<Bullet>();
+
+            if (enemyLife > 0)
+            {
+                enemyLife -= bullet.playerDamage;
+            }
+            Destroy(bullet.gameObject);
+        }
+
+
+    }
 }

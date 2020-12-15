@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
    public void Death()
    {
        death = true;
-        animator.SetBool("Death", true);
+       animator.SetBool("Death", true);
         
     }
 }

@@ -9,8 +9,8 @@ public class Bullet : MonoBehaviour
     public float speed = 20f;
     Rigidbody2D rb;
 
-    int playerDamage = 25;
-    int enemyDamage = 10;
+   public int playerDamage = 75;
+    int enemyDamage = 2;
 
 
     void Awake()
@@ -33,17 +33,24 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if (collision.gameObject.layer == 8) // 8 = Enemy
-        {
-            Enemy enemy = FindObjectOfType<Enemy>();
+
+        
+        //if (collision.gameObject.layer == 8) // 8 = Enemy 
+        //{
+
+        //    if (collision.GetComponent<Enemy>())
+        //    {
+        //        Enemy enemy = FindObjectOfType<Enemy>();
+
+        //        if (enemy.enemyLife > 0)
+        //        {
+        //            enemy.enemyLife -= playerDamage;
+        //        }
+
+        //        Destroy(gameObject);
+        //    }
             
-            if (enemy.enemyLife > 0)
-            {
-                enemy.enemyLife -= playerDamage;
-            }
-            
-            Destroy(gameObject);
-        }
+        //}
 
         if (collision.gameObject.layer == 9) // 9 = Player
         {

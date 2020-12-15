@@ -27,7 +27,7 @@ public class EnemyMove : MonoBehaviour
     void Update()
     {
         //Move();
-        //Rotate();
+        Rotate();
     }
     
     private void Move()
@@ -49,11 +49,23 @@ public class EnemyMove : MonoBehaviour
     void Rotate()
     {
         Vector3 playerPosition = player.transform.position;
-        playerPosition.z = 0;
+        Vector3 enemyPosition = transform.position;
 
-        transform.LookAt(-playerPosition);
+        Vector3 direction = enemyPosition - playerPosition;
 
-       
+        direction.z = 0;
+        transform.up = direction;
+
+
+
+
+
+
+        // playerPosition.z = 0;
+
+        // transform.LookAt(-playerPosition);
+
+
     }
 
 }
