@@ -30,14 +30,19 @@ public class Player : MonoBehaviour
     
     void Update()
     {
+        if (death)
+        {
+            return;
+        }
+        
         if (playerLife <= 0)
         {
+            death = true;
+            print("Player Death");
             Death();
         }
-        else
-        {
-            CheckFire();
-        }
+        
+        CheckFire();
         
     }
 
@@ -67,8 +72,6 @@ public class Player : MonoBehaviour
 
    public void Death()
    {
-       death = true;
        animator.SetBool("Death", true);
-        
-    }
+   }
 }

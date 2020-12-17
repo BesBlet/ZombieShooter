@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
 
     public float fireRate = 3f;
     public int enemyLife = 75;
+    public bool death;
+    
     float nextFire;
 
     Animator animator;
@@ -22,15 +24,20 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if (enemyLife <= 0)
+        if (death)  
         {
-            Death();
-        }
-        else
-        {
-            CheckFire();
+            return;
         }
 
+        if (enemyLife <= 0)
+        {
+            death = true;
+            Death();
+            print("Enemy Death");
+        }
+
+        CheckFire();
+        
     }
 
 

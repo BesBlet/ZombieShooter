@@ -2,124 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4bb90578-a99a-4d22-97d3-a1845d52db14" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Death.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Death/death_0000_Man.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Death/death_0000_Man.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Death/death_0001_Man.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Death/death_0001_Man.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Death/death_0002_Man.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Death/death_0002_Man.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Death/death_0003_Man.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Death/death_0003_Man.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Death/death_0004_Man.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Death/death_0004_Man.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Death/death_0005_Man.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Death/death_0005_Man.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Gun_Shot.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Gun_Shot/Gun_Shot_000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Gun_Shot/Gun_Shot_000.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Gun_Shot/Gun_Shot_001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Gun_Shot/Gun_Shot_001.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Gun_Shot/Gun_Shot_002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Gun_Shot/Gun_Shot_002.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Gun_Shot/Gun_Shot_003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Gun_Shot/Gun_Shot_003.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Gun_Shot/Gun_Shot_004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Gun_Shot/Gun_Shot_004.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Idle_gun.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Idle_gun/Idle_gun_000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Idle_gun/Idle_gun_000.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Idle_gun/Idle_gun_001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Idle_gun/Idle_gun_001.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Idle_gun/Idle_gun_002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Idle_gun/Idle_gun_002.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Idle_gun/Idle_gun_003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Idle_gun/Idle_gun_003.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Idle_gun/Idle_gun_004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Idle_gun/Idle_gun_004.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Idle_gun/Idle_gun_005.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Idle_gun/Idle_gun_005.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Idle_gun/Idle_gun_006.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Idle_gun/Idle_gun_006.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Idle_gun/Idle_gun_007.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Idle_gun/Idle_gun_007.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Walk_gun.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Walk_gun/Walk_gun_000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Walk_gun/Walk_gun_000.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Walk_gun/Walk_gun_001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Walk_gun/Walk_gun_001.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Walk_gun/Walk_gun_002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Walk_gun/Walk_gun_002.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Walk_gun/Walk_gun_003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Walk_gun/Walk_gun_003.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Walk_gun/Walk_gun_004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Walk_gun/Walk_gun_004.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Walk_gun/Walk_gun_005.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Man/Walk_gun/Walk_gun_005.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Death.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Death/death_0006_Girl.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Death/death_0006_Girl.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Death/death_0007_Girl.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Death/death_0007_Girl.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Death/death_0008_Girl.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Death/death_0008_Girl.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Death/death_0009_Girl.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Death/death_0009_Girl.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Death/death_0010_Girl.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Death/death_0010_Girl.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Death/death_0011_Girl.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Death/death_0011_Girl.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Gun_Shot.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Gun_Shot/Gun_Shot_000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Gun_Shot/Gun_Shot_000.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Gun_Shot/Gun_Shot_001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Gun_Shot/Gun_Shot_001.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Gun_Shot/Gun_Shot_002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Gun_Shot/Gun_Shot_002.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Gun_Shot/Gun_Shot_003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Gun_Shot/Gun_Shot_003.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Gun_Shot/Gun_Shot_004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Gun_Shot/Gun_Shot_004.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Idle_gun.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Idle_gun/Idle_gun_000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Idle_gun/Idle_gun_000.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Idle_gun/Idle_gun_001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Idle_gun/Idle_gun_001.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Idle_gun/Idle_gun_002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Idle_gun/Idle_gun_002.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Idle_gun/Idle_gun_003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Idle_gun/Idle_gun_003.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Idle_gun/Idle_gun_004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Idle_gun/Idle_gun_004.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Idle_gun/Idle_gun_005.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Idle_gun/Idle_gun_005.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Idle_gun/Idle_gun_006.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Idle_gun/Idle_gun_006.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Idle_gun/Idle_gun_007.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Idle_gun/Idle_gun_007.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Walk_gun.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Walk_gun/Walk_gun_000.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Walk_gun/Walk_gun_000.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Walk_gun/Walk_gun_001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Walk_gun/Walk_gun_001.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Walk_gun/Walk_gun_002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Walk_gun/Walk_gun_002.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Walk_gun/Walk_gun_003.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Walk_gun/Walk_gun_003.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Walk_gun/Walk_gun_004.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Walk_gun/Walk_gun_004.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Walk_gun/Walk_gun_005.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/TD2/Woman/Walk_gun/Walk_gun_005.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bullet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ZombieShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZombieShooter/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,10 +19,10 @@
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/EnemyMove.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bullet.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lgy4YQYJ6MiRR0MFlzH28UCszG" />
@@ -187,6 +73,7 @@
       <updated>1608032850443</updated>
       <workItem from="1608032866862" duration="152000" />
       <workItem from="1608033303316" duration="11143000" />
+      <workItem from="1608212703665" duration="1616000" />
     </task>
     <servers />
   </component>
@@ -205,6 +92,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
