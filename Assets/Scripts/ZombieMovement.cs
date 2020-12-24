@@ -11,6 +11,8 @@ public class ZombieMovement : MonoBehaviour
     Animator animator;
     Zombie zombie;
 
+    Vector3 targetPosition;
+
     Player player;
 
     void Awake()
@@ -33,9 +35,8 @@ public class ZombieMovement : MonoBehaviour
 
     private Vector3 Position()
     {
-        Vector3 playerPosition = player.transform.position;
         Vector3 zombiePosition = transform.position;
-        Vector3 direction = zombiePosition - playerPosition;
+        Vector3 direction = zombiePosition - targetPosition;
         return direction;
 
     }

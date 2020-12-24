@@ -87,11 +87,40 @@ public class Zombie : MonoBehaviour
         }
     }
 
+
+
+    private void ChangeState(ZombieState newState)
+    {
+        switch(newState)
+        {
+            case ZombieState.STAND:
+                
+                break;
+
+            case ZombieState.MOVE:
+                
+                break;
+
+            case ZombieState.ATTACK:
+               
+                break;
+
+            case ZombieState.RETURN:
+               
+                break;
+
+            case ZombieState.DEATH:
+                
+                break;
+
+        }
+
+    }
     void DoDeath()
     {
         if (zombieHealth <= 0)
         {
-            activeState = ZombieState.DEATH;
+            ChangeState(ZombieState.DEATH);
             return;
         }
         movement.enabled = false;
@@ -103,7 +132,7 @@ public class Zombie : MonoBehaviour
     {
         if (distanceToPlayer > attackRarius)
         {
-            activeState = ZombieState.MOVE;
+            ChangeState(ZombieState.MOVE);
             return;
         }
 
@@ -137,7 +166,7 @@ public class Zombie : MonoBehaviour
     {
         if (distanceToPlayer < attackRarius)
         {
-            activeState = ZombieState.ATTACK;
+            ChangeState(ZombieState.ATTACK);
             return;
         }
 
@@ -149,7 +178,7 @@ public class Zombie : MonoBehaviour
     {
         if (distanceToPlayer < moveRadius)
         {
-            activeState = ZombieState.MOVE;
+            ChangeState(ZombieState.MOVE);
             return;
         }
 
@@ -161,7 +190,7 @@ public class Zombie : MonoBehaviour
     {
         if (distanceToPlayer > visionRadius)
         {
-            activeState = ZombieState.RETURN;
+            ChangeState(ZombieState.RETURN);
             return;
         }
 

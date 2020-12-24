@@ -15,10 +15,6 @@ public class PlayerMovement : MonoBehaviour
     Player player;
 
 
-
-
-
-
     void Awake()
     {
         animator = GetComponent<Animator>();
