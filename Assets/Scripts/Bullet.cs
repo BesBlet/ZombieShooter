@@ -9,8 +9,7 @@ public class Bullet : MonoBehaviour
     public float speed = 20f;
     Rigidbody2D rb;
 
-   public int playerDamage = 75;
-    int enemyDamage = 2;
+   public int playerDamage = 40;
 
 
     void Awake()
@@ -52,16 +51,6 @@ public class Bullet : MonoBehaviour
             
         //}
 
-        if (collision.gameObject.layer == 9) // 9 = Player
-        {
-            Player player = FindObjectOfType<Player>();
-            
-            if (player.playerLife > 0)
-            {
-                player.playerLife -= enemyDamage;
-            }
-            
-            Destroy(gameObject); 
-        }
+        
     }
 }

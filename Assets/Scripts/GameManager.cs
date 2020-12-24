@@ -7,25 +7,31 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public Text ScoreLifeText;
+    public Text ScoreHealthText;
+    public Text ZombieHealthText;
 
     Player player;
-
+    Zombie zombie;
 
     private void Start()
     {
         player = FindObjectOfType<Player>();
+        zombie = FindObjectOfType<Zombie>();
     }
 
 
     private void Update()
     {
-        ScoreLifeText.text = player.playerLife.ToString();
+        ScoreHealthText.text = player.playerHealth.ToString();
+        ZombieHealthText.text = zombie.zombieHealth.ToString();
+        
         
         if( player.death == true )
         {
             StartCoroutine(LevelReboot());
         }
+        
+        
     }
     
     

@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public float fireRate = 1f;
     float nextFire;
     
-    public int playerLife = 100;
+    public int playerHealth = 100;
     public bool death;
 
     Animator animator;
@@ -35,17 +35,21 @@ public class Player : MonoBehaviour
             return;
         }
         
-        if (playerLife <= 0)
-        {
-            death = true;
-            print("Player Death");
-            Death();
-        }
-        
         CheckFire();
         
     }
 
+    public void UpdateHealth(int amount)
+    {
+        playerHealth += amount;
+            
+        if (playerHealth <= 0)
+        {
+           
+            Death();
+        }
+            
+    }
    
 
     private void CheckFire()
@@ -72,6 +76,8 @@ public class Player : MonoBehaviour
 
    public void Death()
    {
+       death = true;
+       print("Player Death");
        animator.SetBool("Death", true);
    }
 }

@@ -9,6 +9,7 @@ public class ZombieMovement : MonoBehaviour
 
     Rigidbody2D rb;
     Animator animator;
+    Zombie zombie;
 
     Player player;
 
@@ -16,11 +17,13 @@ public class ZombieMovement : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        zombie = GetComponent<Zombie>();
     }
 
-    private void Start()
+    void Start()
     {
         player = FindObjectOfType<Player>();
+        Vector3 zStartPosition = transform.position;
     }
     void Update()
     {
@@ -34,6 +37,7 @@ public class ZombieMovement : MonoBehaviour
         Vector3 zombiePosition = transform.position;
         Vector3 direction = zombiePosition - playerPosition;
         return direction;
+
     }
 
     private void Move()

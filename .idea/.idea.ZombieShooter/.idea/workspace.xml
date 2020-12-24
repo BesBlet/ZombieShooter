@@ -2,9 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4bb90578-a99a-4d22-97d3-a1845d52db14" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ZombieShooter/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZombieShooter/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZombieShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZombieShooter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Zombie/Zombie 2_female/Attack_z2f.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/Zombie/Zombie 2_female/Attack_z2f.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/Explosion/explosion_0001.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/Explosion/explosion_0001.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/Explosion/explosion_0002.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/Explosion/explosion_0002.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/Explosion/explosion_0003.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/Explosion/explosion_0003.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/Explosion/explosion_0004.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/Explosion/explosion_0004.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/Explosion/explosion_0005.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/Explosion/explosion_0005.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/Explosion/explosion_0006.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/Explosion/explosion_0006.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyMove.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyMove.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FollowCamera.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FollowCamera.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Zombie.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Zombie.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ZombieMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ZombieMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -15,14 +33,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Bomb.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/AutoDestroyer.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/EnemyMove.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Bullet.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/ZombieMovement.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Bullet.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Zombie.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/AutoDestroyer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Bomb.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lgy4YQYJ6MiRR0MFlzH28UCszG" />
@@ -32,6 +58,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -74,6 +101,7 @@
       <workItem from="1608032866862" duration="152000" />
       <workItem from="1608033303316" duration="11143000" />
       <workItem from="1608212703665" duration="1616000" />
+      <workItem from="1608801153166" duration="14931000" />
     </task>
     <servers />
   </component>

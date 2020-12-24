@@ -22,9 +22,9 @@ AnimationClip:
     - time: 0
       value: {fileID: 21300000, guid: 221506d3be245904fbb3123d0392c21a, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300000, guid: 13f5a449a2f42b34ba8d679af343ef18, type: 3}
+      value: {fileID: 21300000, guid: 221506d3be245904fbb3123d0392c21a, type: 3}
     - time: 0.16666667
-      value: {fileID: 21300000, guid: 975c62302ee26fe4faaa1c9d63d99f53, type: 3}
+      value: {fileID: 21300000, guid: 221506d3be245904fbb3123d0392c21a, type: 3}
     - time: 0.25
       value: {fileID: 21300000, guid: 6d2e5af32f2ddff4085a6df3555106cb, type: 3}
     - time: 0.33333334
@@ -57,8 +57,8 @@ AnimationClip:
       isPPtrCurve: 1
     pptrCurveMapping:
     - {fileID: 21300000, guid: 221506d3be245904fbb3123d0392c21a, type: 3}
-    - {fileID: 21300000, guid: 13f5a449a2f42b34ba8d679af343ef18, type: 3}
-    - {fileID: 21300000, guid: 975c62302ee26fe4faaa1c9d63d99f53, type: 3}
+    - {fileID: 21300000, guid: 221506d3be245904fbb3123d0392c21a, type: 3}
+    - {fileID: 21300000, guid: 221506d3be245904fbb3123d0392c21a, type: 3}
     - {fileID: 21300000, guid: 6d2e5af32f2ddff4085a6df3555106cb, type: 3}
     - {fileID: 21300000, guid: 4948996d3a7d5314da281f5b231791c6, type: 3}
     - {fileID: 21300000, guid: 7fe4ad6e457327b449fbe23688c4a620, type: 3}
@@ -89,4 +89,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.41666666
+    functionName: DamageToPlayer
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
