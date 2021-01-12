@@ -22,7 +22,7 @@ public class ZombieUI : MonoBehaviour
     {
         healthSlider.value = zombie.health;
     }
-    private void Update()
+    void LateUpdate()   
     {
         transform.rotation = Quaternion.identity;
     }

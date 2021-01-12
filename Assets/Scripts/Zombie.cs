@@ -21,6 +21,7 @@ public class Zombie : MonoBehaviour
 
     ZombieState activeState;
 
+    Rigidbody2D rb;
     CircleCollider2D zCollider;
     Animator animator;
     ZombieMovement movement;
@@ -43,6 +44,7 @@ public class Zombie : MonoBehaviour
 
     private void Awake()
     {
+        rb = GetComponent<Rigidbody2D>();
         zCollider = GetComponent<CircleCollider2D>();
         animator = GetComponent<Animator>();
         movement = GetComponent<ZombieMovement>();
@@ -72,6 +74,7 @@ public class Zombie : MonoBehaviour
             isDead = true;
             animator.SetBool("Death", true);
             zCollider.enabled = false;
+            //rb.
             //trigger animation death
         }
         HealthChanged(); //вызов события
