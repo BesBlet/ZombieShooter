@@ -1,203 +1,240 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Zombie : MonoBehaviour
 {
+    public Action HealthChanged = delegate { }; //delegate { } - пустое действие, чтобы не было ошибки в случае, если никто не подпишется
+
+    [Header("AI config")]
     public float moveRadius = 10;
-    public float attackRarius = 5;
-    public float visionRadius = 20;
+    public float standbyRadius = 15;
+    public float attackRadius = 3;
 
-    public float distanceToPlayer;
+    [Header("Gameplay config")]
+    public float attackRate = 1f;
+    public int health = 100;
+    public int damage = 20;
 
-    public float attackRate = 3f;
-    
-    public int zombieHealth = 80;
-    public int zombieDamage = 20;
-
-    public bool returnToStart;
-
-    float nextAttack;
-
-    
-    
     Player player;
-    Bullet bullet;
-    
-    ZombieState activeState;
-    
-    Animator animator;
-    
-    ZombieMovement movement;
-   
 
-   enum ZombieState
+    ZombieState activeState;
+
+    CircleCollider2D zCollider;
+    Animator animator;
+    ZombieMovement movement;
+
+
+    float nextAttack; //через сколько времени можно произвести следующую атаку
+    float distanceToPlayer;
+
+    bool isDead = false;
+
+    Vector3 startPosition;
+
+    enum ZombieState
     {
         STAND,
-        MOVE,
-        ATTACK,
         RETURN,
-        DEATH
+        MOVE_TO_PLAYER,
+        ATTACK
     }
 
     private void Awake()
     {
+        zCollider = GetComponent<CircleCollider2D>();
         animator = GetComponent<Animator>();
         movement = GetComponent<ZombieMovement>();
     }
+
+    // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<Player>();
-        activeState = ZombieState.STAND;
-        returnToStart = false;
+
+        startPosition = transform.position;
+        ChangeState(ZombieState.STAND);
+
+        HealthChanged += Method1;
     }
 
+    void Method1()
+    {
+        print("Health changed");
+    }
 
+    public void UpdateHealth(int amount)
+    {
+        health += amount;
+        if(health <= 0)
+        {
+            isDead = true;
+            animator.SetBool("Death", true);
+            zCollider.enabled = false;
+            //trigger animation death
+        }
+        HealthChanged(); //вызов события
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Bullet bullet = collision.GetComponent<Bullet>();
+        UpdateHealth(-bullet.playerDamage);
+    }
 
+    // Update is called once per frame
     void Update()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        if (isDead)
+        {
+            return;
+        }
+
+        distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
 
         switch (activeState)
         {
             case ZombieState.STAND:
-                DoStand(distanceToPlayer);
-                //Stand
+                DoStand();
                 break;
-            
-            case ZombieState.MOVE:
-                DoMove(distanceToPlayer);
-                //Move
-                break;
-            
-            case ZombieState.ATTACK:
-                DoAttack(distanceToPlayer);
-                //Attack
-                break;
-            
             case ZombieState.RETURN:
-                DoReturn(distanceToPlayer);
-                //Return
+                DoReturn();
                 break;
-            
-            case ZombieState.DEATH:
-                DoDeath();
-                //Death
+            case ZombieState.MOVE_TO_PLAYER:
+                DoMove();
+                break;
+            case ZombieState.ATTACK:
+                DoAttack();
                 break;
         }
     }
-
-
 
     private void ChangeState(ZombieState newState)
     {
-        switch(newState)
+        switch (newState)
         {
             case ZombieState.STAND:
-                
+                movement.enabled = false;
                 break;
-
-            case ZombieState.MOVE:
-                
-                break;
-
-            case ZombieState.ATTACK:
-               
-                break;
-
             case ZombieState.RETURN:
-               
+                movement.targetPosition = startPosition;
+                movement.enabled = true;
                 break;
-
-            case ZombieState.DEATH:
-                
+            case ZombieState.MOVE_TO_PLAYER:
+                movement.enabled = true;
+                //Play move sound
                 break;
-
+            case ZombieState.ATTACK:
+                movement.enabled = false;
+                break;
         }
-
-    }
-    void DoDeath()
-    {
-        if (zombieHealth <= 0)
-        {
-            ChangeState(ZombieState.DEATH);
-            return;
-        }
-        movement.enabled = false;
-        animator.SetBool("Death", true);
-    }
-    
-    
-    private void DoAttack(float distanceToPlayer)
-    {
-        if (distanceToPlayer > attackRarius)
-        {
-            ChangeState(ZombieState.MOVE);
-            return;
-        }
-
-        if (nextAttack > 0)
-        {
-            nextAttack -= Time.deltaTime;
-        }
-
-        if (nextAttack <= 0)
-        {
-            animator.SetTrigger("Shoot");
-            nextAttack = attackRate;
-            movement.enabled = false;
-            DamageToPlayer();
-            
-        }
-        
+        activeState = newState;
     }
 
-    public void DamageToPlayer()
+    private void DoStand()
     {
-        if (distanceToPlayer > attackRarius)
+        CheckMoveToPlayer();
+    }
+
+    private void DoReturn()
+    {
+        if (CheckMoveToPlayer())
         {
             return;
         }
-        player.UpdateHealth(-zombieDamage);    
+        //if (distanceToPlayer < moveRadius)
+        //{
+        //    ChangeState(ZombieState.MOVE_TO_PLAYER);
+        //    return;
+        //}
+
+        float distanceToStart = Vector3.Distance(transform.position, startPosition);
+        if (distanceToStart <= 0.05f) 
+        {
+            ChangeState(ZombieState.STAND);
+            return;
+        }
     }
 
-    
-    private void DoMove(float distanceToPlayer)
+    private bool CheckMoveToPlayer()
     {
-        if (distanceToPlayer < attackRarius)
+        //проверям радиус
+        if (distanceToPlayer > moveRadius)
+        {
+            return false;
+        }
+
+
+        //проверям препятствия
+        Vector3 directionToPlayer = player.transform.position - transform.position;
+        Debug.DrawRay(transform.position, directionToPlayer, Color.red);
+
+        LayerMask layerMask = LayerMask.GetMask("Obstacles");
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPlayer, directionToPlayer.magnitude, layerMask);
+        if(hit.collider != null)
+        {
+            //есть коллайдер
+            return false;
+        }
+
+
+        //бежать за игроком
+        ChangeState(ZombieState.MOVE_TO_PLAYER);
+        return true;
+    }
+
+    private void DoMove()
+    {
+        if (distanceToPlayer < attackRadius)
         {
             ChangeState(ZombieState.ATTACK);
             return;
         }
-
-        movement.enabled = true;
-    }
-
-    
-    private void DoStand(float distanceToPlayer)
-    {
-        if (distanceToPlayer < moveRadius)
-        {
-            ChangeState(ZombieState.MOVE);
-            return;
-        }
-
-        movement.enabled = false;
-    }
-    
-    
-    private void DoReturn(float distanceToPlayer)
-    {
-        if (distanceToPlayer > visionRadius)
+        if (distanceToPlayer > standbyRadius)
         {
             ChangeState(ZombieState.RETURN);
             return;
         }
 
-        returnToStart = true;
-        movement.enabled = true;
+        //move
+        movement.targetPosition = player.transform.position;
+    }
+    private void DoAttack()
+    {
+        if (distanceToPlayer > attackRadius)
+        {
+            ChangeState(ZombieState.MOVE_TO_PLAYER);
+            StopAllCoroutines();
+            return;
+        }
+
+        nextAttack -= Time.deltaTime;
+        if (nextAttack <= 0)
+        {
+            animator.SetTrigger("Shoot");
+
+            nextAttack = attackRate;
+        }
     }
 
+    public void DamageToPlayer()
+    {
+        if (distanceToPlayer > attackRadius)
+        {
+            return;
+        }
+        player.UpdateHealth(-damage);
+    }
+
+    //IEnumerator AttackCoroutine()
+    //{
+    //    while (true)
+    //    {
+    //        animator.SetTrigger("Shoot");
+    //        player.UpdateHealth(-damage);
+    //        yield return new WaitForSeconds(attackRate);
+    //    }
+    //}
 
     private void OnDrawGizmos()
     {
@@ -205,24 +242,9 @@ public class Zombie : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, moveRadius);
 
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRarius);
-        
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, visionRadius);
+        Gizmos.DrawWireSphere(transform.position, attackRadius);
 
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Player Bullet")) // 10 =  player bullet
-        {
-            bullet = collision.gameObject.GetComponent<Bullet>();
-
-            if (zombieHealth > 0)
-            {
-                zombieHealth -= bullet.playerDamage;
-            }
-            Destroy(bullet.gameObject);
-        }
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, standbyRadius);
     }
 }

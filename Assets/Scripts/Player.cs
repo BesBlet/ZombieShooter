@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
+    public Action playerIsDeath = delegate { };
+    public Action HealthChanged = delegate { };
     public Bullet bulletPrefab;
     public GameObject shootPosition;
 
@@ -48,7 +50,8 @@ public class Player : MonoBehaviour
            
             Death();
         }
-            
+        
+        HealthChanged();
     }
    
 
@@ -79,5 +82,6 @@ public class Player : MonoBehaviour
        death = true;
        print("Player Death");
        animator.SetBool("Death", true);
+       playerIsDeath();
    }
 }

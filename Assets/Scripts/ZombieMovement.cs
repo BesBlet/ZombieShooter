@@ -11,7 +11,7 @@ public class ZombieMovement : MonoBehaviour
     Animator animator;
     Zombie zombie;
 
-    Vector3 targetPosition;
+    public Vector3 targetPosition;
 
     Player player;
 
@@ -25,7 +25,6 @@ public class ZombieMovement : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<Player>();
-        Vector3 zStartPosition = transform.position;
     }
     void Update()
     {

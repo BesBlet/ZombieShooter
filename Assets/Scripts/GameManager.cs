@@ -7,37 +7,39 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public Text ScoreHealthText;
-    public Text ZombieHealthText;
+    public Text playerHealthText;
+    public GameObject rebootPanel;
 
     Player player;
-    Zombie zombie;
 
     private void Start()
     {
         player = FindObjectOfType<Player>();
-        zombie = FindObjectOfType<Zombie>();
+        playerHealthText.text = player.playerHealth.ToString();
+        
+        player.playerIsDeath += rebootPanelView;
+        player.HealthChanged += UpdateHealth;
+        
+        Time.timeScale = 1f;
     }
 
 
-    private void Update()
+    public void rebootPanelView()
     {
-        ScoreHealthText.text = player.playerHealth.ToString();
-        ZombieHealthText.text = zombie.zombieHealth.ToString();
-        
-        
-        if( player.death == true )
-        {
-            StartCoroutine(LevelReboot());
-        }
-        
-        
+        Time.timeScale = 0f;
+        rebootPanel.SetActive(true);
     }
-    
-    
-    IEnumerator LevelReboot()
+
+
+    public void UpdateHealth()
     {
-        yield return new WaitForSeconds(3f);
+        playerHealthText.text = player.playerHealth.ToString();
+    }
+
+    public void RebootButton()
+    {
         SceneManager.LoadScene(0);
     }
+    
+    
 }
