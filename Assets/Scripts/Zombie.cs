@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pathfinding;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,8 @@ public class Zombie : MonoBehaviour
     [Header("AI config")]
     public float moveRadius = 10;
     public float standbyRadius = 15;
-    public float attackRadius = 3;
+    public float attackRadius = 6;
+    public int zAngle = 90;
 
     [Header("Gameplay config")]
     public float attackRate = 1f;
@@ -24,7 +26,9 @@ public class Zombie : MonoBehaviour
     Rigidbody2D rb;
     CircleCollider2D zCollider;
     Animator animator;
-    ZombieMovement movement;
+    AIDestinationSetter aIDestinationSetter;
+    AIPath aIPath;
+
 
 
     float nextAttack; //через сколько времени можно произвести следующую атаку
@@ -47,7 +51,8 @@ public class Zombie : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         zCollider = GetComponent<CircleCollider2D>();
         animator = GetComponent<Animator>();
-        movement = GetComponent<ZombieMovement>();
+        aIPath = GetComponent<AIPath>();
+        aIDestinationSetter = GetComponent<AIDestinationSetter>();
     }
 
     // Start is called before the first frame update
@@ -117,18 +122,18 @@ public class Zombie : MonoBehaviour
         switch (newState)
         {
             case ZombieState.STAND:
-                movement.enabled = false;
+                aIPath.enabled = false;
                 break;
             case ZombieState.RETURN:
-                movement.targetPosition = startPosition;
-                movement.enabled = true;
+                aIPath.enabled = true;
                 break;
             case ZombieState.MOVE_TO_PLAYER:
-                movement.enabled = true;
+                aIDestinationSetter.target = player.transform;
+                aIPath.enabled = true;
                 //Play move sound
                 break;
             case ZombieState.ATTACK:
-                movement.enabled = false;
+                aIPath.enabled = false;
                 break;
         }
         activeState = newState;
@@ -172,6 +177,12 @@ public class Zombie : MonoBehaviour
         Vector3 directionToPlayer = player.transform.position - transform.position;
         Debug.DrawRay(transform.position, directionToPlayer, Color.red);
 
+        float angle = Vector3.Angle(-transform.up, directionToPlayer);
+        if(angle > zAngle/2)
+        {
+            return false;
+        }
+
         LayerMask layerMask = LayerMask.GetMask("Obstacles");
         RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPlayer, directionToPlayer.magnitude, layerMask);
         if(hit.collider != null)
@@ -191,16 +202,20 @@ public class Zombie : MonoBehaviour
         if (distanceToPlayer < attackRadius)
         {
             ChangeState(ZombieState.ATTACK);
+            animator.SetFloat("Speed", 0);
             return;
         }
         if (distanceToPlayer > standbyRadius)
         {
             ChangeState(ZombieState.RETURN);
+            animator.SetFloat("Speed", 0);
             return;
         }
 
+
+        animator.SetFloat("Speed", 1);
         //move
-        movement.targetPosition = player.transform.position;
+
     }
     private void DoAttack()
     {

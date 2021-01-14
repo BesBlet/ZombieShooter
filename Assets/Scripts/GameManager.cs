@@ -26,11 +26,19 @@ public class GameManager : MonoBehaviour
 
     public void rebootPanelView()
     {
-        Time.timeScale = 0f;
-        rebootPanel.SetActive(true);
+        StartCoroutine(WaitPanel(2));
+       
     }
 
+    IEnumerator WaitPanel(int delay)
+    {
+        
+        yield return new WaitForSeconds(delay);
+        Time.timeScale = 1f;
+        yield return new WaitForSecondsRealtime(delay);
+        rebootPanel.SetActive(true);
 
+    }
     public void UpdateHealth()
     {
         playerHealthText.text = player.playerHealth.ToString();

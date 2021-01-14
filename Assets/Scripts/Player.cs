@@ -44,7 +44,12 @@ public class Player : MonoBehaviour
     public void UpdateHealth(int amount)
     {
         playerHealth += amount;
-            
+        
+        if (playerHealth < 0)
+        {
+            return;
+        }
+
         if (playerHealth <= 0)
         {
            
