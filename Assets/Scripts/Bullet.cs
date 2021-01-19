@@ -27,30 +27,5 @@ public class Bullet : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
-
-        
-        //if (collision.gameObject.layer == 8) // 8 = Enemy 
-        //{
-
-        //    if (collision.GetComponent<Enemy>())
-        //    {
-        //        Enemy enemy = FindObjectOfType<Enemy>();
-
-        //        if (enemy.enemyLife > 0)
-        //        {
-        //            enemy.enemyLife -= playerDamage;
-        //        }
-
-        //        Destroy(gameObject);
-        //    }
-            
-        //}
-
-        
-    }
+    
 }

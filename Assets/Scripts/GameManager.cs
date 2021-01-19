@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public Action IsRebootScene = delegate { };
     public Text playerHealthText;
     public GameObject rebootPanel;
 
@@ -46,8 +47,18 @@ public class GameManager : MonoBehaviour
 
     public void RebootButton()
     {
-        SceneManager.LoadScene(0);
+        IsRebootScene();
     }
     
+    public void ExitButton()
+    {
+        Application.Quit();
+    }
+
+
+    public void SettingsButton()
+    {
+        
+    }
     
 }
