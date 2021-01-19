@@ -83,17 +83,20 @@ public class Player : MonoBehaviour
         {
             Shoot();
             magazineCapacity--;
+            print("ammo" + magazineCapacity);
             
             
         }
 
         if (magazineCapacity <= 0)
         {
+            print("Start coroutine");
             StartCoroutine(CheckPistolReload());
         }
         else
         {
-            StopCoroutine(CheckPistolReload());
+            print("Stop coroutine");
+            
         }
 
         if (nextFire > 0)
@@ -119,9 +122,13 @@ public class Player : MonoBehaviour
     {
         pistolReloadStart.Play();
         totalBulletNumber -= capacity;
+        print("total" + totalBulletNumber);
         yield return new WaitForSeconds(1);
         magazineCapacity += capacity;
         pistolReloadEnd.Play();
+        yield return new WaitForSeconds(2);
+        yield break;
+        print("Stop coroutine");
     }
 
     private void Shoot()

@@ -264,5 +264,13 @@ public class Zombie : MonoBehaviour
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, standbyRadius);
+
+        Gizmos.color = Color.cyan;
+        Vector3 lookDirection = -transform.up;
+        Vector3 leftViewVector = Quaternion.AngleAxis(zAngle / 2, Vector3.forward) * lookDirection;
+        Vector3 rightViewVector = Quaternion.AngleAxis(-zAngle / 2, Vector3.forward) * lookDirection;
+
+        Gizmos.DrawRay(transform.position, lookDirection * moveRadius);
+       
     }
 }
