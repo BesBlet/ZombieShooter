@@ -19,7 +19,13 @@ public class Zombie : MonoBehaviour
     public int health = 100;
     public int damage = 20;
 
+    [Header("Zombie SFX")] 
+    
+    public AudioSource pistolDamage;
+    public AudioSource finalPistolDamage;
+
     Player player;
+    LevelManager levelManager;
 
     ZombieState activeState;
 
@@ -59,42 +65,19 @@ public class Zombie : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<Player>();
+        levelManager = FindObjectOfType<LevelManager>();
 
         startPosition = transform.position;
         ChangeState(ZombieState.STAND);
 
-        HealthChanged += Method1;
+        levelManager.ZombieAmount();
     }
 
-    void Method1()
-    {
-        print("Health changed");
-    }
-
-    public void UpdateHealth(int amount)
-    {
-        health += amount;
-        if(health <= 0)
-        {
-            isDead = true;
-            animator.SetBool("Death", true);
-            zCollider.enabled = false;
-            //rb.
-            //trigger animation death
-        }
-        HealthChanged(); //вызов события
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Bullet bullet = collision.GetComponent<Bullet>();
-        UpdateHealth(-bullet.playerDamage);
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (isDead)
         {
+            aIPath.enabled = false;
             return;
         }
 
@@ -116,6 +99,41 @@ public class Zombie : MonoBehaviour
                 break;
         }
     }
+
+    public void UpdateHealth(int amount)
+    {
+        health += amount;
+        if(health <= 0)
+        {
+            isDead = true;
+            animator.SetBool("Death", true);
+            zCollider.enabled = false;
+            rb.isKinematic = false;
+            levelManager.ZombieLVLReboot();
+            
+        }
+        HealthChanged(); //вызов события
+    }
+    
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Bullet bullet = collision.GetComponent<Bullet>();
+        
+        if (health <= bullet.playerDamage)
+        {
+            finalPistolDamage.Play();
+        }
+        else
+        { 
+            pistolDamage.Play();
+        }
+        
+        UpdateHealth(-bullet.playerDamage);
+        
+    }
+    
+   
 
     private void ChangeState(ZombieState newState)
     {
@@ -139,6 +157,8 @@ public class Zombie : MonoBehaviour
         activeState = newState;
     }
 
+    
+    
     private void DoStand()
     {
         CheckMoveToPlayer();
@@ -150,11 +170,6 @@ public class Zombie : MonoBehaviour
         {
             return;
         }
-        //if (distanceToPlayer < moveRadius)
-        //{
-        //    ChangeState(ZombieState.MOVE_TO_PLAYER);
-        //    return;
-        //}
 
         float distanceToStart = Vector3.Distance(transform.position, startPosition);
         if (distanceToStart <= 0.05f) 
@@ -243,16 +258,7 @@ public class Zombie : MonoBehaviour
         }
         player.UpdateHealth(-damage);
     }
-
-    //IEnumerator AttackCoroutine()
-    //{
-    //    while (true)
-    //    {
-    //        animator.SetTrigger("Shoot");
-    //        player.UpdateHealth(-damage);
-    //        yield return new WaitForSeconds(attackRate);
-    //    }
-    //}
+    
 
     private void OnDrawGizmos()
     {

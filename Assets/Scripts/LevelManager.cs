@@ -7,13 +7,29 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
    int sceneIndex;
+   int zombieAmount;
 
    GameManager gameManager;
-   public GameObject playButtton;
    private void Start()
    {
       gameManager = FindObjectOfType<GameManager>();
       gameManager.IsRebootScene += RebootLVL;
+      
+   }
+
+   public void ZombieLVLReboot()
+   {
+      zombieAmount--;
+      print("Zombie " + zombieAmount);
+      if (zombieAmount <= 0)
+      {
+         gameManager.rebootPanelView();
+      }
+   }
+
+   public void ZombieAmount()
+   {
+      zombieAmount++;
    }
 
    public void PlayButtonOnClick()
@@ -30,6 +46,7 @@ public class LevelManager : MonoBehaviour
    {
       sceneIndex = SceneManager.GetActiveScene().buildIndex;
       SceneManager.LoadScene(sceneIndex + 1);
+     
    }
    public void RebootLVL()
    {

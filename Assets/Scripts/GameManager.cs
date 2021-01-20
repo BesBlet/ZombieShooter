@@ -8,7 +8,13 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public Action IsRebootScene = delegate { };
+    
+    [Header("Player health UI")]
     public Text playerHealthText;
+    
+    [Header("Ammo UI")]
+    public Text ammoText;
+    public Text totalAmmoText;
     public GameObject rebootPanel;
 
     Player player;
@@ -18,10 +24,34 @@ public class GameManager : MonoBehaviour
         player = FindObjectOfType<Player>();
         playerHealthText.text = player.playerHealth.ToString();
         
-        player.playerIsDeath += rebootPanelView;
+        ammoText.text = player.magazineCapacity.ToString();
+        /*totalAmmoText.text = player.totalAmmoNumber.ToString();*/
+        
+        player.AmmoIsChanged += AmmoUpdate;
+        /*player.TotalAmmoIsChanged += TotalAmmoUpdate;*/
+        
+        player.PlayerIsDeath += rebootPanelView;
         player.HealthChanged += UpdateHealth;
         
         Time.timeScale = 1f;
+    }
+
+    /*private void TotalAmmoUpdate()
+    {
+        totalAmmoText.text = player.totalAmmoNumber.ToString();
+    }*/
+
+    private void AmmoUpdate()
+    {
+        ammoText.text = player.magazineCapacity.ToString();
+        if (player.magazineCapacity < 3)
+        {
+            ammoText.color = Color.red;
+        }
+        else if (player.magazineCapacity == player.capacity)
+        {
+            ammoText.color = Color.white;
+        }
     }
 
 
@@ -43,6 +73,21 @@ public class GameManager : MonoBehaviour
     public void UpdateHealth()
     {
         playerHealthText.text = player.playerHealth.ToString();
+
+        if (player.playerHealth > 80)
+        {
+            playerHealthText.color = Color.green;
+        }
+        
+        else if (player.playerHealth < 80 && player.playerHealth > 40)
+        {
+            playerHealthText.color = Color.yellow;
+        }
+        
+        else if (player.playerHealth < 40 )
+        {
+            playerHealthText.color = Color.red;
+        }
     }
 
     public void RebootButton()

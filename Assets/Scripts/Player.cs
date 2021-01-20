@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Action playerIsDeath = delegate { };
+    public Action PlayerIsDeath = delegate { };
     public Action HealthChanged = delegate { };
+    public Action AmmoIsChanged = delegate { };
+    public Action TotalAmmoIsChanged = delegate { };
 
     [Header("Player SFX")]
     public AudioSource playerDeathSound;
@@ -17,33 +19,40 @@ public class Player : MonoBehaviour
     public AudioSource pistolReloadEnd;
     public AudioSource pistolEmptyMagazine;
     public AudioSource pistolCartridgeDrop;
-    
-    
+
+    public GameObject magazinePrefub;
     public Bullet bulletPrefab;
     public GameObject shootPosition;
-
-    public float fireRate = 1f;
-    float nextFire;
-
-    public int magazineCapacity = 7;
-    private int capacity;
-    public int totalBulletNumber = 49;
     
+    [Header("Pistol Config")]
     public int playerHealth = 100;
+    public int magazineCapacity = 7;
+   // public int totalAmmoNumber = 49;
+    public float fireRate = 1f;
     public bool death;
+    [HideInInspector]
+    public int capacity;
+    
+    float nextFire;
+    
 
-    Animator animator;
+    Animator animator; 
+    CircleCollider2D collider;
+    Rigidbody2D rb;
     
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        collider = GetComponent<CircleCollider2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Start()
     {
         capacity = magazineCapacity;
         death = false;
+        print("Capacity " + capacity);
     }
 
     
@@ -79,40 +88,53 @@ public class Player : MonoBehaviour
 
     private void CheckFire()
     {
+        CheckNumberAmmo();
+        
+        if (/*totalAmmoNumber < 0 &&*/ magazineCapacity < 0)
+        {
+            return;
+        }
+        
+        
         if (Input.GetButton("Fire1") && nextFire <= 0 && magazineCapacity > 0)
         {
             Shoot();
             magazineCapacity--;
-            print("ammo" + magazineCapacity);
+            AmmoIsChanged();
+            print("ammo " + magazineCapacity);
             
             
         }
 
-        if (magazineCapacity <= 0)
+        if (magazineCapacity <= 0 /*&& totalAmmoNumber > 0 */)
         {
+            /*totalAmmoNumber -= capacity;
+            print("total " + totalAmmoNumber);
+            TotalAmmoIsChanged();*/
+            
             print("Start coroutine");
             StartCoroutine(CheckPistolReload());
-        }
-        else
-        {
-            print("Stop coroutine");
             
+            Instantiate(magazinePrefub, transform.position, Quaternion.identity);
+            Destroy(magazinePrefub,5f);
+            
+            magazineCapacity += capacity;
+            AmmoIsChanged();
+
         }
+       
 
         if (nextFire > 0)
         {
             nextFire -= Time.deltaTime;
         }
         
-        
-        CheckNumberAmmo();
-        
     }
     
 
     void CheckNumberAmmo()
     {
-        if (totalBulletNumber <= 0)
+        if (Input.GetButton("Fire1") /*&& totalAmmoNumber <= 0*/ && magazineCapacity <= 0)
         {
             pistolEmptyMagazine.Play();
         }
@@ -121,14 +143,14 @@ public class Player : MonoBehaviour
     IEnumerator CheckPistolReload()
     {
         pistolReloadStart.Play();
-        totalBulletNumber -= capacity;
-        print("total" + totalBulletNumber);
+        
         yield return new WaitForSeconds(1);
-        magazineCapacity += capacity;
+        
         pistolReloadEnd.Play();
-        yield return new WaitForSeconds(2);
-        yield break;
+        
         print("Stop coroutine");
+        yield break;
+
     }
 
     private void Shoot()
@@ -151,6 +173,8 @@ public class Player : MonoBehaviour
        print("Player Death");
        animator.SetBool("Death", true);
        playerDeathSound.Play();
-       playerIsDeath();
+       collider.enabled = false;
+       rb.isKinematic = false;
+       PlayerIsDeath();
    }
 }
