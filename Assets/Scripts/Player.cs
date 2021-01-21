@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance;
+
     public Action PlayerIsDeath = delegate { };
     public Action HealthChanged = delegate { };
     public Action AmmoIsChanged = delegate { };
@@ -44,6 +46,13 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        if(Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+
         animator = GetComponent<Animator>();
         collider = GetComponent<CircleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
@@ -147,7 +156,7 @@ public class Player : MonoBehaviour
             StartCoroutine(CheckPistolReload());
             
             Instantiate(magazinePrefub, transform.position, Quaternion.identity);
-            Destroy(magazinePrefub,5f);
+            Destroy(magazinePrefub.gameObject,5f);
             
             magazineCapacity += capacity;
             AmmoIsChanged();
@@ -195,4 +204,13 @@ public class Player : MonoBehaviour
        rb.isKinematic = false;
        PlayerIsDeath();
    }
+
+
+    private void OnDestroy()
+    {
+        if(this == Instance)
+        {
+            Instance = null;
+        }
+    }
 }

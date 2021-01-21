@@ -21,7 +21,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        player = FindObjectOfType<Player>();
+        player = Player.Instance;
+
         playerHealthText.text = player.playerHealth.ToString();
         
         ammoText.text = player.magazineCapacity.ToString();

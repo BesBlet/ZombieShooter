@@ -64,7 +64,8 @@ public class Zombie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = FindObjectOfType<Player>();
+        player = Player.Instance;
+
         levelManager = FindObjectOfType<LevelManager>();
 
         startPosition = transform.position;
