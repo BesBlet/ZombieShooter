@@ -25,10 +25,10 @@ public class GameManager : MonoBehaviour
         playerHealthText.text = player.playerHealth.ToString();
         
         ammoText.text = player.magazineCapacity.ToString();
-        /*totalAmmoText.text = player.totalAmmoNumber.ToString();*/
+        totalAmmoText.text = player.totalAmmoNumber.ToString();
         
         player.AmmoIsChanged += AmmoUpdate;
-        /*player.TotalAmmoIsChanged += TotalAmmoUpdate;*/
+        player.TotalAmmoIsChanged += TotalAmmoUpdate;
         
         player.PlayerIsDeath += rebootPanelView;
         player.HealthChanged += UpdateHealth;
@@ -36,10 +36,10 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    /*private void TotalAmmoUpdate()
+    private void TotalAmmoUpdate()
     {
         totalAmmoText.text = player.totalAmmoNumber.ToString();
-    }*/
+    }
 
     private void AmmoUpdate()
     {

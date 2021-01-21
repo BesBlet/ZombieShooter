@@ -27,13 +27,14 @@ public class Player : MonoBehaviour
     [Header("Pistol Config")]
     public int playerHealth = 100;
     public int magazineCapacity = 7;
-   // public int totalAmmoNumber = 49;
+    public int totalAmmoNumber = 49;
     public float fireRate = 1f;
     public bool death;
     [HideInInspector]
     public int capacity;
     
     float nextFire;
+    bool isReloading;
     
 
     Animator animator; 
@@ -53,6 +54,7 @@ public class Player : MonoBehaviour
         capacity = magazineCapacity;
         death = false;
         print("Capacity " + capacity);
+        isReloading = false;
     }
 
     
@@ -90,12 +92,13 @@ public class Player : MonoBehaviour
     {
         CheckNumberAmmo();
         
-        if (/*totalAmmoNumber < 0 &&*/ magazineCapacity < 0)
+        IfPistolReload();
+        
+        if (isReloading)
         {
             return;
         }
-        
-        
+
         if (Input.GetButton("Fire1") && nextFire <= 0 && magazineCapacity > 0)
         {
             Shoot();
@@ -103,14 +106,42 @@ public class Player : MonoBehaviour
             AmmoIsChanged();
             print("ammo " + magazineCapacity);
             
-            
         }
 
-        if (magazineCapacity <= 0 /*&& totalAmmoNumber > 0 */)
+        
+        if (nextFire > 0)
         {
-            /*totalAmmoNumber -= capacity;
+            nextFire -= Time.deltaTime;
+        }
+        
+    }
+    
+
+    void CheckNumberAmmo()
+    {
+        if (Input.GetButton("Fire1") && totalAmmoNumber <= 0 && magazineCapacity <= 0)
+        {
+            pistolEmptyMagazine.Play();
+        }
+    }
+
+    void IfPistolReload()
+    {
+        if (magazineCapacity > 0)
+        {
+            isReloading = false;
+        }
+        else
+        {
+            isReloading = true;
+        }
+        
+        
+        if (magazineCapacity <= 0 && totalAmmoNumber > 0 && isReloading)
+        {
+            totalAmmoNumber -= capacity;
             print("total " + totalAmmoNumber);
-            TotalAmmoIsChanged();*/
+            TotalAmmoIsChanged();
             
             print("Start coroutine");
             StartCoroutine(CheckPistolReload());
@@ -122,22 +153,9 @@ public class Player : MonoBehaviour
             AmmoIsChanged();
 
         }
-       
-
-        if (nextFire > 0)
-        {
-            nextFire -= Time.deltaTime;
-        }
         
-    }
-    
-
-    void CheckNumberAmmo()
-    {
-        if (Input.GetButton("Fire1") /*&& totalAmmoNumber <= 0*/ && magazineCapacity <= 0)
-        {
-            pistolEmptyMagazine.Play();
-        }
+            
+        
     }
 
     IEnumerator CheckPistolReload()

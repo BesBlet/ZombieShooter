@@ -16197,7 +16197,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &522944019
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18906,7 +18906,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1164755286
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19262,6 +19262,7 @@ MonoBehaviour:
   shootPosition: {fileID: 1003101005}
   playerHealth: 100
   magazineCapacity: 7
+  totalAmmoNumber: 49
   fireRate: 1
   death: 0
   capacity: 0
