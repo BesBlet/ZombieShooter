@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Lean.Pool;
 using UnityEngine;
 
 public class AutoDestroyer : MonoBehaviour
@@ -8,7 +9,7 @@ public class AutoDestroyer : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, destroyDelay);
+        LeanPool.Despawn(gameObject, destroyDelay);
     }
 }
 

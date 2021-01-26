@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using  Lean.Pool;
 
 public class Player : MonoBehaviour
 {
@@ -155,8 +156,8 @@ public class Player : MonoBehaviour
             print("Start coroutine");
             StartCoroutine(CheckPistolReload());
             
-            Instantiate(magazinePrefub, transform.position, Quaternion.identity);
-            Destroy(magazinePrefub.gameObject,5f);
+            LeanPool.Spawn(magazinePrefub, transform.position, Quaternion.identity);
+            LeanPool.Despawn(magazinePrefub.gameObject,5f);
             
             magazineCapacity += capacity;
             AmmoIsChanged();
@@ -186,7 +187,7 @@ public class Player : MonoBehaviour
         
         pistolShot.Play();
        
-        Instantiate(bulletPrefab, shootPosition.transform.position, transform.rotation);
+        LeanPool.Spawn(bulletPrefab, shootPosition.transform.position, transform.rotation);
         
         pistolCartridgeDrop.Play();
         

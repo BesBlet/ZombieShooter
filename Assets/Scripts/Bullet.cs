@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Lean.Pool;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -18,14 +19,15 @@ public class Bullet : MonoBehaviour
     }
 
 
-    void Start()
+    private void OnEnable()
+    
     {
         rb.velocity = -transform.up * speed;
     }
 
     private void OnBecameInvisible()
-    {
-        Destroy(gameObject);
+    { 
+        LeanPool.Despawn(gameObject);
     }
     
 }

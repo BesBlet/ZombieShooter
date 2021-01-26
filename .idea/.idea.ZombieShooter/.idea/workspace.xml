@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4bb90578-a99a-4d22-97d3-a1845d52db14" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ZombieShooter/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZombieShooter/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ZombieShooter/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZombieShooter/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ZombieShooter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ZombieShooter/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameLVLl1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameLVLl1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AutoDestroyer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AutoDestroyer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bullet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,14 +36,14 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bomb.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/AutoDestroyer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ZombieMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ZombieUI.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Bullet.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Zombie.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/AutoDestroyer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Bullet.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lgy4YQYJ6MiRR0MFlzH28UCszG" />
@@ -110,6 +113,7 @@
       <workItem from="1611138506713" duration="11639000" />
       <workItem from="1611152458072" duration="623000" />
       <workItem from="1611217401862" duration="2422000" />
+      <workItem from="1611659376058" duration="2389000" />
     </task>
     <servers />
   </component>
@@ -138,13 +142,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs</url>
-          <line>30</line>
+          <line>31</line>
           <properties documentPath="C:\Users\Kema\Unity\ZombieShooter\Assets\Scripts\GameManager.cs" initialLine="30" containingFunctionPresentation="method 'Start'">
             <startOffsets>
-              <option value="790" />
+              <option value="780" />
             </startOffsets>
             <endOffsets>
-              <option value="835" />
+              <option value="825" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />
