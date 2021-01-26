@@ -102,12 +102,14 @@ public class Player : MonoBehaviour
     {
         CheckNumberAmmo();
         
-        IfPistolReload();
+        
         
         if (isReloading)
         {
             return;
         }
+
+        IfPistolReload();
 
         if (Input.GetButton("Fire1") && nextFire <= 0 && magazineCapacity > 0)
         {
@@ -137,17 +139,10 @@ public class Player : MonoBehaviour
 
     void IfPistolReload()
     {
-        if (magazineCapacity > 0)
-        {
-            isReloading = false;
-        }
-        else
-        {
-            isReloading = true;
-        }
+       
+       
         
-        
-        if (magazineCapacity <= 0 && totalAmmoNumber > 0 && isReloading)
+        if ((magazineCapacity <= 0 || Input.GetButton("Fire3")) && totalAmmoNumber > 0 && !isReloading )
         {
             totalAmmoNumber -= capacity;
             print("total " + totalAmmoNumber);
@@ -156,10 +151,10 @@ public class Player : MonoBehaviour
             print("Start coroutine");
             StartCoroutine(CheckPistolReload());
             
-            LeanPool.Spawn(magazinePrefub, transform.position, Quaternion.identity);
-            LeanPool.Despawn(magazinePrefub.gameObject,5f);
+           GameObject spawnMagazine =  LeanPool.Spawn(magazinePrefub, transform.position, Quaternion.identity);
+           LeanPool.Despawn(spawnMagazine,5f);
             
-            magazineCapacity += capacity;
+            magazineCapacity = capacity;
             AmmoIsChanged();
 
         }
@@ -170,6 +165,7 @@ public class Player : MonoBehaviour
 
     IEnumerator CheckPistolReload()
     {
+        isReloading = true;
         pistolReloadStart.Play();
         
         yield return new WaitForSeconds(1);
@@ -177,7 +173,9 @@ public class Player : MonoBehaviour
         pistolReloadEnd.Play();
         
         print("Stop coroutine");
-        yield break;
+        isReloading = false;
+
+
 
     }
 
@@ -202,7 +200,7 @@ public class Player : MonoBehaviour
        animator.SetBool("Death", true);
        playerDeathSound.Play();
        collider.enabled = false;
-       rb.isKinematic = false;
+       rb.isKinematic = false;//destroy
        PlayerIsDeath();
    }
 

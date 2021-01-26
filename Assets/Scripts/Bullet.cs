@@ -25,9 +25,22 @@ public class Bullet : MonoBehaviour
         rb.velocity = -transform.up * speed;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.CompareTag("Obstacles"));
+        {
+            LeanPool.Despawn(gameObject);
+        }
+    }
+
     private void OnBecameInvisible()
     { 
-        LeanPool.Despawn(gameObject);
+        if (gameObject.activeSelf)
+        {
+            LeanPool.Despawn(gameObject);
+        }
+       
     }
     
 }
